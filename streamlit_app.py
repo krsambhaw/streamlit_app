@@ -1,7 +1,7 @@
 import streamlit
 import pandas
 import requests
-import snowflake.connector
+
 from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner...')
@@ -43,7 +43,7 @@ def get_fruit_load_list():
         my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
         return my_cur.fetchall()
 
-
+import snowflake.connector
 #Add a button to load fruits
 if streamlit.button('Get Fruit list'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
